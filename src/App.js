@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
-import "swiper/css/effect-cards";
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
 
 import "./styles.css";
 import { EffectCards } from "swiper";
@@ -49,6 +49,7 @@ export default function App() {
             onSlideChange={() => {
               //remove();
             }}
+            data-testid="offer-1"
           >
             <SwiperSlide>Offer 1: Added to bag</SwiperSlide>
             <SwiperSlide> Offer 1</SwiperSlide>
@@ -69,6 +70,7 @@ export default function App() {
             }}
             freeMode={true}
             initialSlide={1}
+            data-testid="offer-2"
           >
             <SwiperSlide>Offer 2: Added to bag</SwiperSlide>
             <SwiperSlide>Offer 2</SwiperSlide>
@@ -89,6 +91,7 @@ export default function App() {
             }}
             freeMode={true}
             initialSlide={1}
+            data-testid="offer-3"
           >
             <SwiperSlide>Offer 3: Added to bag</SwiperSlide>
             <SwiperSlide>Offer 3</SwiperSlide>
@@ -109,6 +112,7 @@ export default function App() {
             }}
             freeMode={true}
             initialSlide={1}
+            data-testid="offer-4"
           >
             <SwiperSlide>Offer 4: Added to bag</SwiperSlide>
             <SwiperSlide>Offer 4</SwiperSlide>
@@ -129,6 +133,7 @@ export default function App() {
             }}
             freeMode={true}
             initialSlide={1}
+            data-testid="offer-5"
           >
             <SwiperSlide>Offer 5: Added to bag</SwiperSlide>
             <SwiperSlide>Offer 5</SwiperSlide>
