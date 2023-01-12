@@ -1,5 +1,6 @@
 import {render, screen, cleanup} from '@testing-library/react';
 import App from "../App";
+import { Swiper } from "swiper/react";
 
 afterEach(() => {
   cleanup();
@@ -12,3 +13,11 @@ test('should render offer', () => {
   expect(offerElement).toBeInTheDocument();
   expect(offerElement).toHaveTextContent(`Offer ${offerId}`)
 }); 
+
+test('should move to next offer', () => {
+  render(<App />);
+  const swiper = document.querySelector('.swiper-v').swiper;
+  const currentIndex = swiper.activeIndex;
+  swiper.slideNext();
+  expect(swiper.activeIndex).toEqual(currentIndex+1)
+});
