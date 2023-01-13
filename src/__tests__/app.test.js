@@ -21,3 +21,12 @@ test('should move to next offer', () => {
   swiper.slideNext();
   expect(swiper.activeIndex).toEqual(currentIndex+1)
 });
+
+test('should move to prev offer', () => {
+  render(<App />);
+  const swiper = document.querySelector('.swiper-v').swiper;
+  const currentIndex = swiper.activeIndex;
+  swiper.slideNext();
+  swiper.slidePrev();
+  expect(swiper.activeIndex).toEqual(currentIndex);
+});
