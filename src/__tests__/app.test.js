@@ -42,3 +42,12 @@ test('should recognize left swipe', () => {
   const expectedDirection = swiper.activeIndex > currentIndex ? 'left' : 'right';
   expect(expectedDirection).toEqual(actualDirection);
 });
+
+test('should recognize right swipe', () => {
+  render(<App />);
+  const swiper = document.querySelector('.swiper-v').querySelector('.swiper-h').swiper;
+  const currentIndex = swiper.activeIndex;
+  const actualDirection = swiper.slidePrev() ? 'right' : 'left';
+  const expectedDirection = swiper.activeIndex > currentIndex ? 'left' : 'right';
+  expect(expectedDirection).toEqual(actualDirection);
+});
