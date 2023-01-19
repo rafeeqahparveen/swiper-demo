@@ -12,6 +12,9 @@ test('should render offer', () => {
   const offerElement = screen.getByTestId(`offer-${offerId}`); 
   expect(offerElement).toBeInTheDocument();
   expect(offerElement).toHaveTextContent(`Offer ${offerId}`)
+
+  // const div = document.createElement("div");
+  // ReactDOM.render(<Swiper></Swiper>, div);
 }); 
 
 test('should move to next offer', () => {
@@ -29,4 +32,13 @@ test('should move to prev offer', () => {
   swiper.slideNext();
   swiper.slidePrev();
   expect(swiper.activeIndex).toEqual(currentIndex);
+});
+
+test('should recognize left swipe', () => {
+  render(<App />);
+  const swiper = document.querySelector('.swiper-v').querySelector('.swiper-h').swiper;
+  const currentIndex = swiper.activeIndex;
+  const actualDirection = swiper.slideNext() ? 'left' : 'right';
+  const expectedDirection = swiper.activeIndex > currentIndex ? 'left' : 'right';
+  expect(expectedDirection).toEqual(actualDirection);
 });
