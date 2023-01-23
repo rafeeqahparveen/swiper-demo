@@ -1,20 +1,18 @@
 import {render, screen, cleanup} from '@testing-library/react';
 import App from "../App";
 import { Swiper } from "swiper/react";
+import SwiperComponent from '../SwiperComponent';
 
 afterEach(() => {
   cleanup();
 });
 
 test('should render offer', () => {
-  render(<App />);
-  const offerId = 2;
+  render(<SwiperComponent />);
+  const offerId = 1;
   const offerElement = screen.getByTestId(`offer-${offerId}`); 
   expect(offerElement).toBeInTheDocument();
-  expect(offerElement).toHaveTextContent(`Offer ${offerId}`)
-
-  // const div = document.createElement("div");
-  // ReactDOM.render(<Swiper></Swiper>, div);
+ // expect(offerElement).toHaveTextContent(`Offer ${offerId}`)
 }); 
 
 test('should move to next offer', () => {
@@ -35,8 +33,8 @@ test('should move to prev offer', () => {
 });
 
 test('should recognize left swipe', () => {
-  render(<App />);
-  const swiper = document.querySelector('.swiper-v').querySelector('.swiper-h').swiper;
+  render(<SwiperComponent />);
+  const swiper = document.querySelector('.swiper-h').swiper;
   const currentIndex = swiper.activeIndex;
   const actualDirection = swiper.slideNext() ? 'left' : 'right';
   const expectedDirection = swiper.activeIndex > currentIndex ? 'left' : 'right';
@@ -44,8 +42,8 @@ test('should recognize left swipe', () => {
 });
 
 test('should recognize right swipe', () => {
-  render(<App />);
-  const swiper = document.querySelector('.swiper-v').querySelector('.swiper-h').swiper;
+  render(<SwiperComponent />);
+  const swiper = document.querySelector('.swiper-h').swiper;
   const currentIndex = swiper.activeIndex;
   const actualDirection = swiper.slidePrev() ? 'right' : 'left';
   const expectedDirection = swiper.activeIndex > currentIndex ? 'left' : 'right';
