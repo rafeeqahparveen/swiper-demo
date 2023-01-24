@@ -26,7 +26,7 @@ export default function SwiperComponent(props) {
             }}
             freeMode={true}
             initialSlide={1}
-            onSliderFirstMove={(swiperChild) => {
+            onSlideResetTransitionEnd={(swiperChild) => {
                 if (swiperChild.touches.currentX > swiperChild.touches.startX) {
                     setDirection("right");
                     //console.log("direction: right");
