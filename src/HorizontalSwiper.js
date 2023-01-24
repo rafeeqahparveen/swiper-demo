@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/swiper-bundle.min.css";
@@ -10,8 +10,7 @@ import { EffectCards } from "swiper";
 import SwiperCore, { Manipulation } from "swiper";
 SwiperCore.use([Manipulation]);
 
-export default function SwiperComponent(props) {
-    const [direction, setDirection] = useState(null);
+export default function HorizontalSwiper(props) {
 
     return (
         <Swiper
@@ -26,15 +25,7 @@ export default function SwiperComponent(props) {
             }}
             freeMode={true}
             initialSlide={1}
-            onSlideResetTransitionEnd={(swiperChild) => {
-                if (swiperChild.touches.currentX > swiperChild.touches.startX) {
-                    setDirection("right");
-                    //console.log("direction: right");
-                }
-                if (swiperChild.touches.currentX < swiperChild.touches.startX) {
-                    setDirection("left");
-                    //console.log("direction: left");
-                }
+            onSlideResetTransitionEnd={() => {
                 props.slideToRemove(props.swiperRef);
             }}
             data-testid="offer-1"
