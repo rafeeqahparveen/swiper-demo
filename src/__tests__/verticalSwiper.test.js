@@ -1,21 +1,21 @@
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup } from "@testing-library/react";
 import VerticalSwiper from "../VerticalSwiper";
 
 afterEach(() => {
     cleanup();
 });
 
-test('should move to next offer', () => {
+test("should move to next offer", () => {
     render(<VerticalSwiper />);
-    const swiper = document.querySelector('.swiper-v').swiper;
+    const swiper = document.querySelector(".swiper-v").swiper;
     const currentIndex = swiper.activeIndex;
     swiper.slideNext();
-    expect(swiper.activeIndex).toEqual(currentIndex + 1)
+    expect(swiper.activeIndex).toEqual(currentIndex + 1);
 });
 
-test('should move to prev offer', () => {
+test("should move to prev offer", () => {
     render(<VerticalSwiper />);
-    const swiper = document.querySelector('.swiper-v').swiper;
+    const swiper = document.querySelector(".swiper-v").swiper;
     const currentIndex = swiper.activeIndex;
     swiper.slideNext();
     swiper.slidePrev();

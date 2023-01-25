@@ -28,7 +28,7 @@ export default function HorizontalSwiper(props) {
             onSlideResetTransitionEnd={() => {
                 props.slideToRemove(props.swiperRef);
             }}
-            data-testid="offer-1"
+            data-testid="offer"
         >
             <SwiperSlide>Offer {props.index}: Added to bag</SwiperSlide>
             <SwiperSlide>Offer {props.index}</SwiperSlide>
