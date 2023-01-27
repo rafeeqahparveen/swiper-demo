@@ -30,9 +30,9 @@ export default function HorizontalSwiper(props) {
             }}
             data-testid="offer"
         >
-            <SwiperSlide>Offer {props.index}: Added to bag</SwiperSlide>
+            <SwiperSlide data-testid="add">Offer {props.index}: Added to bag</SwiperSlide>
             <SwiperSlide>{props.name}<br></br>{props.description}</SwiperSlide>
-            <SwiperSlide>Offer:{props.index}: Removed</SwiperSlide>
+            <SwiperSlide data-testid="remove">Offer {props.index}: Removed</SwiperSlide>
         </Swiper>
     );
 }
