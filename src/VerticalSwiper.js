@@ -12,24 +12,13 @@ import SwiperCore, { Manipulation } from "swiper";
 import HorizontalSwiper from "./HorizontalSwiper";
 SwiperCore.use([Manipulation]);
 
-export default function VerticalSwiper() {
+export default function VerticalSwiper(props) {
     const [swiperRef, setSwiperRef] = useState(null);
-    let offers = [];
 
     const slideToRemove = (swiper) => {
         swiper.slideNext(5, true);
         swiper.removeSlide(swiper.activeIndex - 1);
     };
-    
-    for (let i = 1; i <= 10; i++) {
-        offers.push(<SwiperSlide key={i}>
-            <HorizontalSwiper
-                index={i}
-                slideToRemove={slideToRemove}
-                swiperRef={swiperRef}
-            />
-        </SwiperSlide>)
-    }
 
     return (
         <>
@@ -45,7 +34,20 @@ export default function VerticalSwiper() {
                 }}
                 direction={"vertical"}
             >
-                {offers}
+                {props.data.offers.map((offer) => {
+                    return (
+                        <SwiperSlide key={offer.id}>
+                            <HorizontalSwiper
+                                index={offer.id}
+                                description={offer.description}
+                                name={offer.name}
+                                slideToRemove={slideToRemove}
+                                swiperRef={swiperRef}
+                            />
+                        </SwiperSlide>
+                    )
+
+                })}
             </Swiper>
         </>
     );

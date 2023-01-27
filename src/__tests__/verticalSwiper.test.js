@@ -1,12 +1,13 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import VerticalSwiper from "../VerticalSwiper";
+import data from '../offers.json';
 
 afterEach(() => {
     cleanup();
 });
 
 test("should move to next offer", () => {
-    render(<VerticalSwiper />);
+    render(<VerticalSwiper data={data} />);
     const swiper = document.querySelector(".swiper-v").swiper;
     const currentIndex = swiper.activeIndex;
     swiper.slideNext();
@@ -14,7 +15,7 @@ test("should move to next offer", () => {
 });
 
 test("should move to prev offer", () => {
-    render(<VerticalSwiper />);
+    render(<VerticalSwiper data={data} />);
     const swiper = document.querySelector(".swiper-v").swiper;
     const currentIndex = swiper.activeIndex;
     swiper.slideNext();

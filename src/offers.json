@@ -1,0 +1,39 @@
+{
+    "offers": [
+        {
+            "id": "1",
+            "name": "Offer 1",
+            "description": "Description1"
+        },
+        {
+            "id": "2",
+            "name": "Offer 2",
+            "description": "Description2"
+        },
+        {
+            "id": "3",
+            "name": "Offer 3",
+            "description": "Description3"
+        },
+        {
+            "id": "4",
+            "name": "Offer 4",
+            "description": "Description4"
+        },
+        {
+            "id": "5",
+            "name": "Offer 5",
+            "description": "Description5"
+        },
+        {
+            "id": "6",
+            "name": "Offer 6",
+            "description": "Description6"
+        },
+        {
+            "id": "7",
+            "name": "Offer 7",
+            "description": "Description7"
+        }
+    ]
+}
