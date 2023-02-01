@@ -35,12 +35,12 @@ export default function VerticalSwiper(props) {
                 direction={"vertical"}
             >
                 {props.data.offers.map((offer) => {
+                    var arrayLen = props.data.offers.length
                     return (
                         <SwiperSlide key={offer.id}>
                             <HorizontalSwiper
-                                index={offer.id}
-                                description={offer.description}
-                                name={offer.name}
+                                currentOffer={offer}
+                                nextOffer={offer.id === arrayLen ? null : props.data.offers[offer.id]}
                                 slideToRemove={slideToRemove}
                                 swiperRef={swiperRef}
                             />
