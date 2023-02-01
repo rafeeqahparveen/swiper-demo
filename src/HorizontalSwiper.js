@@ -11,7 +11,7 @@ import SwiperCore, { Manipulation } from "swiper";
 SwiperCore.use([Manipulation]);
 
 export default function HorizontalSwiper(props) {
-    
+
     return (
         <Swiper
             className="mySwiper2 swiper-h"
@@ -30,9 +30,9 @@ export default function HorizontalSwiper(props) {
             }}
             data-testid="offer"
         >
-            <SwiperSlide>{props.nextOffer !== null ? props.nextOffer.name : "Added"}<br></br>{props.nextOffer !== null ? props.nextOffer.description : ""}</SwiperSlide>
+            <SwiperSlide data-testid="add">{props.nextOffer !== null ? props.nextOffer.name : "Added"}<br></br>{props.nextOffer !== null ? props.nextOffer.description : ""}</SwiperSlide>
             <SwiperSlide>{props.currentOffer.name}<br></br>{props.currentOffer.description}</SwiperSlide>
-            <SwiperSlide>{props.nextOffer !== null ? props.nextOffer.name : "Removed"}<br></br>{props.nextOffer !== null ? props.nextOffer.description : ""}</SwiperSlide>
+            <SwiperSlide data-testid="remove">{props.nextOffer !== null ? props.nextOffer.name : "Removed"}<br></br>{props.nextOffer !== null ? props.nextOffer.description : ""}</SwiperSlide>
         </Swiper>
     );
 }
