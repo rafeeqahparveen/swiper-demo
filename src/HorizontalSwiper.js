@@ -25,8 +25,15 @@ export default function HorizontalSwiper(props) {
             }}
             freeMode={true}
             initialSlide={1}
-            onSlideResetTransitionEnd={() => {
-                props.slideToRemove(props.swiperRef);
+            onReachEnd={() => {
+                if(props.nextOffer !== null){
+                    props.slideToRemove(props.swiperRef);
+                }
+            }}
+            onReachBeginning={() => {
+                if(props.nextOffer !== null){
+                    props.slideToRemove(props.swiperRef);
+                }
             }}
             data-testid="offer"
         >
