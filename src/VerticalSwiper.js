@@ -14,14 +14,18 @@ SwiperCore.use([Manipulation]);
 
 export default function VerticalSwiper(props) {
     const [swiperRef, setSwiperRef] = useState(null);
-
+    const [bagCount, setBagCount] = useState(0);
     const slideToRemove = (swiper) => {
+        if (swiper.touches.currentX < swiper.touches.startX) {
+            setBagCount(bagCount + 1);
+        }
         swiper.slideNext(5, true);
         swiper.removeSlide(swiper.activeIndex - 1);
     };
 
     return (
         <>
+            <h2><center>Offers In Bag: {bagCount}</center></h2>
             <Swiper
                 onSwiper={(swiper) => setSwiperRef(swiper)}
                 className="mySwiper swiper-v main-container"
