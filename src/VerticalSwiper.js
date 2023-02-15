@@ -15,6 +15,7 @@ SwiperCore.use([Manipulation]);
 export default function VerticalSwiper(props) {
     const [swiperRef, setSwiperRef] = useState(null);
     const [bagCount, setBagCount] = useState(0);
+
     const slideToRemove = (swiper) => {
         if (swiper.touches.currentX < swiper.touches.startX) {
             setBagCount(bagCount + 1);
@@ -25,7 +26,9 @@ export default function VerticalSwiper(props) {
 
     return (
         <>
-            <h2><center>Offers In Bag: {bagCount}</center></h2>
+            <h2>
+                <center>Offers In Bag: {bagCount}</center>
+            </h2>
             <Swiper
                 onSwiper={(swiper) => setSwiperRef(swiper)}
                 className="mySwiper swiper-v main-container"
@@ -39,18 +42,23 @@ export default function VerticalSwiper(props) {
                 direction={"vertical"}
             >
                 {props.data.offers.map((offer) => {
-                    var arrayLen = props.data.offers.length
+                    var arrayLen = props.data.offers.length;
                     return (
                         <SwiperSlide key={offer.id}>
                             <HorizontalSwiper
                                 currentOffer={offer}
-                                nextOffer={offer.id === arrayLen ? null : props.data.offers[offer.id]}
+                                nextOffer={
+                                    offer.id === arrayLen
+                                        ? null
+                                        : props.data.offers[offer.id]
+                                }
                                 slideToRemove={slideToRemove}
                                 swiperRef={swiperRef}
+                                bag={props.bag}
+                                setBag={props.setBag}
                             />
                         </SwiperSlide>
-                    )
-
+                    );
                 })}
             </Swiper>
         </>

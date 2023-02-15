@@ -11,7 +11,6 @@ import SwiperCore, { Manipulation } from "swiper";
 SwiperCore.use([Manipulation]);
 
 export default function HorizontalSwiper(props) {
-
     return (
         <Swiper
             className="mySwiper2 swiper-h"
@@ -26,20 +25,33 @@ export default function HorizontalSwiper(props) {
             freeMode={true}
             initialSlide={1}
             onReachEnd={() => {
-                if(props.nextOffer !== null){
+                if (props.nextOffer !== null) {
                     props.slideToRemove(props.swiperRef);
                 }
             }}
             onReachBeginning={() => {
-                if(props.nextOffer !== null){
+                props.setBag((value) => [...value, props.currentOffer.name]);
+                if (props.nextOffer !== null) {
                     props.slideToRemove(props.swiperRef);
                 }
             }}
             data-testid="offer"
         >
-            <SwiperSlide data-testid="add">{props.nextOffer !== null ? props.nextOffer.name : "Added"}<br></br>{props.nextOffer !== null ? props.nextOffer.description : ""}</SwiperSlide>
-            <SwiperSlide>{props.currentOffer.name}<br></br>{props.currentOffer.description}</SwiperSlide>
-            <SwiperSlide data-testid="remove">{props.nextOffer !== null ? props.nextOffer.name : "Removed"}<br></br>{props.nextOffer !== null ? props.nextOffer.description : ""}</SwiperSlide>
+            <SwiperSlide data-testid="add">
+                {props.nextOffer !== null ? props.nextOffer.name : "Added"}
+                <br></br>
+                {props.nextOffer !== null ? props.nextOffer.description : ""}
+            </SwiperSlide>
+            <SwiperSlide>
+                {props.currentOffer.name}
+                <br></br>
+                {props.currentOffer.description}
+            </SwiperSlide>
+            <SwiperSlide data-testid="remove">
+                {props.nextOffer !== null ? props.nextOffer.name : "Removed"}
+                <br></br>
+                {props.nextOffer !== null ? props.nextOffer.description : ""}
+            </SwiperSlide>
         </Swiper>
     );
 }
