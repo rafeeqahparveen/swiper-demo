@@ -42,7 +42,7 @@ export default function App() {
 
     return (
         <>
-            <VerticalSwiper data={data} bag={bag} setBag={setBag} />
+            <VerticalSwiper data={data} setBag={setBag} />
             <br></br>
             <form ref={form} onSubmit={sendEmail}>
                 <center>

@@ -54,7 +54,6 @@ export default function VerticalSwiper(props) {
                                 }
                                 slideToRemove={slideToRemove}
                                 swiperRef={swiperRef}
-                                bag={props.bag}
                                 setBag={props.setBag}
                             />
                         </SwiperSlide>
