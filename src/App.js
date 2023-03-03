@@ -1,5 +1,5 @@
 // Import Swiper React components
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import data from "./offers.json";
 import VerticalSwiper from "./VerticalSwiper";
@@ -9,6 +9,10 @@ export default function App() {
     const [email, setEmail] = useState("test");
     const [bag, setBag] = useState([]);
 
+    useEffect(() => {
+        sessionStorage.setItem('bag', JSON.stringify(bag));
+      }, [bag]);
+
     var templateParams = {
         mail: email,
         fromName: "Digital Incentives",
@@ -16,7 +20,6 @@ export default function App() {
     };
 
     const handleChange = (e) => {
-        console.log(e.target.value);
         setEmail(e.target.value);
     };
     const sendEmail = (e) => {
@@ -42,7 +45,8 @@ export default function App() {
 
     return (
         <>
-            <VerticalSwiper data={data} setBag={setBag} />
+            {console.log("Offers in your bag: ", sessionStorage.getItem("bag"))}
+            <VerticalSwiper data={data} setBag={setBag} bag={bag} />
             <br></br>
             <form ref={form} onSubmit={sendEmail}>
                 <center>
