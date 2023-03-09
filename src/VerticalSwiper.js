@@ -1,13 +1,10 @@
 // Import Swiper React components
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-
 import "./styles.css";
 import { EffectCards } from "swiper";
-
 import SwiperCore, { Manipulation } from "swiper";
 import HorizontalSwiper from "./HorizontalSwiper";
 SwiperCore.use([Manipulation]);
@@ -15,6 +12,7 @@ SwiperCore.use([Manipulation]);
 export default function VerticalSwiper(props) {
     const [swiperRef, setSwiperRef] = useState(null);
     const [bagCount, setBagCount] = useState(0);
+    var num = 1;
 
     const slideToRemove = (swiper) => {
         if (swiper.touches.currentX < swiper.touches.startX) {
@@ -24,10 +22,16 @@ export default function VerticalSwiper(props) {
         swiper.removeSlide(swiper.activeIndex - 1);
     };
 
+    const incrementSlide = () => {
+        props.setI(props.i + num);
+        props.handleCookies();
+    };
+
     return (
         <>
             <h2>
-                <center>Offers In Bag: {bagCount}</center>
+                {/* <center>Offers In Bag: {bagCount}</center> */}
+
             </h2>
             <Swiper
                 onSwiper={(swiper) => setSwiperRef(swiper)}
@@ -41,19 +45,23 @@ export default function VerticalSwiper(props) {
                 }}
                 direction={"vertical"}
             >
+
                 {props.data.offers.map((offer) => {
                     var arrayLen = props.data.offers.length;
+                    let arrayIndex = props.cookies.Counter
+                    arrayIndex++;
                     return (
                         <SwiperSlide key={offer.id}>
                             <HorizontalSwiper
-                                currentOffer={offer}
+                                currentOffer={typeof props.cookies.Counter === 'undefined' ? offer : props.data.offers[props.cookies.Counter]}
                                 nextOffer={
                                     offer.id === arrayLen
                                         ? null
-                                        : props.data.offers[offer.id]
+                                        : typeof props.cookies.Counter === 'undefined' ? offer : props.data.offers[arrayIndex]
                                 }
                                 slideToRemove={slideToRemove}
                                 swiperRef={swiperRef}
+                                incrementSlide={incrementSlide}
                                 setBag={props.setBag}
                             />
                         </SwiperSlide>

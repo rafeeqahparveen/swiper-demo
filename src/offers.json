@@ -2,28 +2,33 @@
     "offers": [
         {
             "id": 1,
-            "name": "Offer 1",
-            "description": "Description1"
+            "name": "1.Exclusive luncheon cocktail with Corsair\n",
+            "description": "Corsair exclusively invites you to join a lunchtime cocktail. Only for those who redeem this offer.\n\n",
+            "redemption":"How To Redeem Your Offer:\nCorsair invites its TO and Groupists customers to a lunch cocktail on our stand G093 - by invitation only. Show this redeemed offer to access\n"
         },
         {
             "id": 2,
-            "name": "Offer 2",
-            "description": "Description2"
+            "name": "2.Exclusive luncheon cocktail with Corsair\n\n",
+            "description": "Corsair exclusively invites you to join a lunchtime cocktail. Only for those who redeem this offer.\n\n",
+            "redemption":"How To Redeem Your Offer:\nCorsair invites its TO and Groupists customers to a lunch cocktail on our stand G093 - by invitation only. Show this redeemed offer to access\n"
         },
         {
             "id": 3,
-            "name": "Offer 3",
-            "description": "Description3"
+            "name": "3.Exclusive luncheon cocktail with Corsair\n\n",
+            "description": "Corsair exclusively invites you to join a lunchtime cocktail. Only for those who redeem this offer.\n\n",
+            "redemption":"How To Redeem Your Offer:\nCorsair invites its TO and Groupists customers to a lunch cocktail on our stand G093 - by invitation only. Show this redeemed offer to access\n"
         },
         {
             "id": 4,
-            "name": "Offer 4",
-            "description": "Description4"
+            "name": "4.Exclusive luncheon cocktail with Corsair\n\n",
+            "description": "Corsair exclusively invites you to join a lunchtime cocktail. Only for those who redeem this offer.\n\n",
+            "redemption":"How To Redeem Your Offer:\nCorsair invites its TO and Groupists customers to a lunch cocktail on our stand G093 - by invitation only. Show this redeemed offer to access\n"
         },
         {
             "id": 5,
-            "name": "Offer 5",
-            "description": "Description5"
+            "name": "5.Exclusive luncheon cocktail with Corsair\n\n",
+            "description": "Corsair exclusively invites you to join a lunchtime cocktail. Only for those who redeem this offer.\n\n",
+            "redemption":"How To Redeem Your Offer:\nCorsair invites its TO and Groupists customers to a lunch cocktail on our stand G093 - by invitation only. Show this redeemed offer to access\n"
         },
         {
             "id": 6,
